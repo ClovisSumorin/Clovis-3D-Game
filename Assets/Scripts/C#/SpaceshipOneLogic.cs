@@ -17,15 +17,20 @@ public class SpaceshipOneLogic : MonoBehaviour {
 
 	void Update() {
 		if(spaceshipController.isGrounded) {
-			moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical (Player 1)"));
+			moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical P1"));
 			moveDirection = transform.TransformDirection(moveDirection);
 			moveDirection *= translateSpeed;
 		}
 
 		angle = transform.eulerAngles;
-		angle.y += Input.GetAxis("Horizontal (Player 1)") * rotateSpeed;
+		angle.y += Input.GetAxis("Horizontal P1") * rotateSpeed;
 		transform.eulerAngles = angle;
 		moveDirection.y -= gravity * Time.deltaTime;
 		spaceshipController.Move(moveDirection * Time.deltaTime);
 	}
+
+	void Fire()
+    {
+
+    }
 }

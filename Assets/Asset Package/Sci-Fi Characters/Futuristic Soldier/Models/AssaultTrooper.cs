@@ -11,6 +11,7 @@ public class AssaultTrooper : MonoBehaviour
     public float speed = 5f;
     public float rotationRate = 180f;
     public float jumpForce = 6f;
+    public string player =  "P1";
 
     Vector3 velocity; //Use to store gravity to apply to the player
 
@@ -30,7 +31,7 @@ public class AssaultTrooper : MonoBehaviour
 
     void HandleLook()
     {
-        transform.Rotate(0, Input.GetAxis("Mouse X") * rotationRate * Time.deltaTime, 0);
+        transform.Rotate(0, Input.GetAxis("Mouse X " + player) * rotationRate * Time.deltaTime, 0);
     }
     
     
@@ -41,12 +42,12 @@ public class AssaultTrooper : MonoBehaviour
 
         velocity += Physics.gravity * Time.deltaTime;
 
-        if(Input.GetButtonDown("Jump") && controller.isGrounded)
+        if(Input.GetButtonDown("Jump" + player) && controller.isGrounded)
         {
             velocity += transform.up * jumpForce;
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1" + player))
         {
             anim.SetTrigger("Attack");
         }

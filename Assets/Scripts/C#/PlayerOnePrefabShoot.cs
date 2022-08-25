@@ -14,7 +14,7 @@ public class PlayerOnePrefabShoot : MonoBehaviour {
 	}
 
 	void Update() {
-		if(Input.GetButtonDown("Fire1 (Player 1)")) {
+		if(Input.GetButtonDown("Fire1 P1")) {
 			Rigidbody projectileClone = Instantiate(projectile, transform.position, transform.rotation);
 			AudioSource.PlayClipAtPoint(fireClip, transform.position);
 			projectileClone.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
