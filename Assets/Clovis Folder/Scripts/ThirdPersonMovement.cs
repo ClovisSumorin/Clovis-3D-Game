@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    Animator anim;
     public CharacterController controller;
     public Transform cam;
 
@@ -22,6 +23,17 @@ public class ThirdPersonMovement : MonoBehaviour
     bool isGrounded;
 
     // Update is called once per frame
+
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
+
+
+
+
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -54,6 +66,10 @@ public class ThirdPersonMovement : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
 
             controller.Move(velocity * Time.deltaTime);
+
+            anim.SetFloat("MoveX", velocity.x);
+            anim.SetFloat("MoveY", velocity.z);
+            anim.SetBool("IsGrounded", controller.isGrounded);
         }
     }
 }
