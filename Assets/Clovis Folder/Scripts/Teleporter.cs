@@ -2,22 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Teleporter : MonoBehaviour
+public class Portal : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject portal;   //Stores a reference to the portal to teleport to
+    public CharacterController ThirdPersonPlayer;   //Stores a reference to the carController script
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider Col)
-    {
-        Col.transform.position = new Vector3(10.0f, 0, 0);
+        //Checks if a car is passing thru the portal
+        if (other.tag == "ThirdPersonPlayer")
+        {
+            ThirdPersonPlayer.transform.position = portal.transform.position;   //Sets the car's position to that of the portal
+            ThirdPersonPlayer.transform.localRotation = portal.transform.localRotation;   //Sets the car's rotation to that of the portal
+        }
     }
 }

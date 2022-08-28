@@ -77,4 +77,9 @@ public class ThirdPersonMovement : MonoBehaviour
             anim.SetBool("IsGrounded", controller.isGrounded);
         }
     }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(groundCheck.position, groundDistance);
+    }
 }
