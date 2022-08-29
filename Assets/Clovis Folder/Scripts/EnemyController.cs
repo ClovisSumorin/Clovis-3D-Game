@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour
             {
                 //Attack the target
 
-                target.GetComponent<Player>().TakeDamage(10);
+                target.GetComponent<Player>().TakeDamage(1);
 
                 FaceTarget();
             }
