@@ -5,11 +5,14 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    bool hasPlayed = false;
 
     public float lookRadius = 10f;
 
     Transform target;
     NavMeshAgent agent;
+
+    public AudioSource alien;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,11 @@ public class EnemyController : MonoBehaviour
 
         if (distance <= lookRadius)
         {
+            if (!hasPlayed)
+            {
+                alien.Play();
+                hasPlayed = true;
+            }
             agent.SetDestination(target.position);
 
             if (distance <= agent.stoppingDistance)
@@ -36,6 +44,8 @@ public class EnemyController : MonoBehaviour
                 FaceTarget();
             }
         }
+        else
+            hasPlayed = false;
     }
 
     void FaceTarget()

@@ -13,25 +13,23 @@ public class Player : MonoBehaviour
 
     public Image healthfillbar;
 
+    public AudioSource playerDeath;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (currentHealth <= 0)
-        {
-            PlayerDie();
-        }
-    }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         UpdateHealth();
+        if (currentHealth <= 0)
+        {
+            PlayerDie();
+        }
     }
 
     void UpdateHealth()
@@ -41,8 +39,12 @@ public class Player : MonoBehaviour
 
     void PlayerDie()
     {
+       playerDeath.Play();
+
        gameObject.transform.position = respawnTransform.transform.position;
        currentHealth = maxHealth;
        UpdateHealth();
+
+        
     }
 }

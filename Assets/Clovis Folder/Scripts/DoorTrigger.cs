@@ -9,6 +9,7 @@ public class DoorTrigger : MonoBehaviour
 
     bool isOpened = false;
 
+    public AudioSource Door;
 
     void OnTriggerEnter(Collider col)
     {
@@ -16,6 +17,8 @@ public class DoorTrigger : MonoBehaviour
         {
             isOpened = true;
             door.transform.position += new Vector3(-10, 0, 0);
+
+            Door.Play();
         }
     }
 }
