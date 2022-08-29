@@ -12,6 +12,7 @@ public class Teleporter : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            print("triggered");
             player.transform.position = tp.transform.position;
         }
     }

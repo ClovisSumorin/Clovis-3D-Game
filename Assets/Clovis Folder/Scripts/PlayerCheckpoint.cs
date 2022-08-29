@@ -29,7 +29,7 @@ public class PlayerCheckpoint : MonoBehaviour
         if(other.gameObject.CompareTag("CheckPoint"))
         {
             spawnPoint = checkPoint.transform.position;
-            Destroy(checkPoint);
+            //Destroy(checkPoint);
         }
     }
 }

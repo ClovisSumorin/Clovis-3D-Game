@@ -30,6 +30,9 @@ public class EnemyController : MonoBehaviour
             if (distance <= agent.stoppingDistance)
             {
                 //Attack the target
+
+                target.GetComponent<Player>().TakeDamage(10);
+
                 FaceTarget();
             }
         }
@@ -47,4 +50,5 @@ public class EnemyController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
+
 }
