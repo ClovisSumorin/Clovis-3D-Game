@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -8,15 +9,14 @@ public class Player : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
-    public HealthBar healthBar;
-
     public Transform respawnTransform;
+
+    public Image healthfillbar;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -31,12 +31,18 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        UpdateHealth();
+    }
 
-        healthBar.SetHealth(currentHealth);
+    void UpdateHealth()
+    {
+        healthfillbar.fillAmount = currentHealth / maxHealth;
     }
 
     void PlayerDie()
     {
-        currentHealth = maxHealth;
+       gameObject.transform.position = respawnTransform.transform.position;
+       currentHealth = maxHealth;
+       UpdateHealth();
     }
 }
