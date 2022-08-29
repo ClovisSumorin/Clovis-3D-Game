@@ -47,13 +47,4 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            print("triggered");
-            player.transform.position = tp.transform.position;
-        }
-    }
 }
