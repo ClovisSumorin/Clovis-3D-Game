@@ -6,7 +6,7 @@ public class Teleporter : MonoBehaviour
 {    
     public Transform destination;
     [SerializeField] GameObject teleportObject;
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
@@ -25,7 +25,8 @@ public class Teleporter : MonoBehaviour
 
     IEnumerator Teleport()
     {
-        yield return new WaitForSeconds(2);
+        print("Tp called");
+        yield return new WaitForSeconds(1);
         teleportObject.SetActive(false);
         yield return null;
         teleportObject.transform.position = destination.position;

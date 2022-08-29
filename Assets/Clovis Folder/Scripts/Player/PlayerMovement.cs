@@ -17,10 +17,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    public Transform tp;
-
-    public GameObject player;
-
     // Update is called once per frame
     void Update()
     {
