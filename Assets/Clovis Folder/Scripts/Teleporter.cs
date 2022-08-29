@@ -25,7 +25,7 @@ public class Teleporter : MonoBehaviour
 
     IEnumerator Teleport()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         teleportObject.SetActive(false);
         yield return null;
         teleportObject.transform.position = destination.position;

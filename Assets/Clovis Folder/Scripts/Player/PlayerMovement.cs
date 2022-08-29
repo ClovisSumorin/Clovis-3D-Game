@@ -17,10 +17,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    public Transform tp;
-
-    public GameObject player;
-
     // Update is called once per frame
     void Update()
     {
@@ -46,14 +42,5 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            print("triggered");
-            player.transform.position = tp.transform.position;
-        }
     }
 }

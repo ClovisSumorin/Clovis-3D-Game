@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     public HealthBar healthBar;
 
+    public Transform respawnTransform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentHealth <= 0)
+        {
+            PlayerDie();
+        }
     }
 
     public void TakeDamage(int damage)
@@ -28,5 +33,10 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
+    }
+
+    void PlayerDie()
+    {
+        currentHealth = maxHealth;
     }
 }
