@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 188433976}
   - component: {fileID: 188433975}
   m_Layer: 5
-  m_Name: Movement (1)
+  m_Name: Idea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,7 +607,7 @@ GameObject:
   - component: {fileID: 717898704}
   - component: {fileID: 717898703}
   m_Layer: 5
-  m_Name: Movement
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1156,8 +1156,8 @@ MonoBehaviour:
 
     Coding Done by : Clovis
 
-    Idea Done by :
-    Clovis
+    Idea Thought by
+    : Clovis
 
 '
 --- !u!222 &2068927339

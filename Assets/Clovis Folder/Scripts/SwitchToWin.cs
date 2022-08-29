@@ -14,6 +14,7 @@ public class SwitchToWin : MonoBehaviour
         {
             SceneManager.LoadScene(sceneToLoad);
             Cursor.lockState = CursorLockMode.None;
+
         }
     }
 }
